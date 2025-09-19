@@ -2,6 +2,7 @@ import json
 from typing import Dict, Any, List
 from pathlib import Path
 import datetime
+import os
 
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task, before_kickoff
@@ -227,7 +228,7 @@ class ReviewCommitteeCrew:
                 "provider": "openai",
                 "config": {
                     "model": "text-embedding-3-small",
-                    "api_key": "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"
+                    "api_key": os.getenv("OPENAI_API_KEY")
                 }
             }
         }
