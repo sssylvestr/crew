@@ -147,6 +147,7 @@ class ReviewCommitteeCrew:
 
     @agent
     def manager_agent(self) -> Agent:
+        """Moderator who facilitates the RC meeting"""
         conf     = self.agents_config['manager_agent']
         role_str = conf['role']
         a = Agent(config=conf, verbose=True, allow_delegation=True, llm=gpt5_llm)
@@ -169,28 +170,6 @@ class ReviewCommitteeCrew:
     #         verbose=True,
     #         allow_delegation=False,
     #     )
-
-    @agent
-    def manager_agent(self) -> Agent:
-        """Moderator who facilitates the RC meeting"""
-        a = Agent(
-            config=self.agents_config['manager_agent'],
-            verbose=True,
-            allow_delegation=True, llm=gpt5_llm
-            )
-        
-        def _log_my_steps(step_output):
-            # step_output is the AgentFinish
-            text = getattr(step_output, "output", "") or getattr(step_output, "text", "")
-            text = text.strip()
-            if not text:
-                return
-            role = a.config.get("role", "KT")
-            with open(self.log_file, "a", encoding="utf-8") as f:
-                f.write(f"{role}: {text}\n")
-
-        a.step_callback = _log_my_steps
-        return a
 
     @task
     def conduct_review_meeting(self) -> Task:
