@@ -11,7 +11,8 @@ from crewai import LLM
 
 # Add this LLM configuration
 gpt5_llm = LLM(
-    model="gpt-5",  # or "gpt-5-mini" or "gpt-5-nano" 
+    model="gpt-5",
+    api_key=os.getenv("OPENAI_API_KEY"),  # or "gpt-5-mini" or "gpt-5-nano" 
     drop_params=True,
     additional_drop_params=["stop"]
 )
@@ -68,7 +69,7 @@ class ReviewCommitteeCrew:
     def an_agent(self) -> Agent:
         conf     = self.agents_config['an_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=False)
+        a = Agent(config=conf, verbose=True, allow_delegation=False, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -81,7 +82,7 @@ class ReviewCommitteeCrew:
     def cf_agent(self) -> Agent:
         conf     = self.agents_config['cf_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=False)
+        a = Agent(config=conf, verbose=True, allow_delegation=False, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -94,7 +95,7 @@ class ReviewCommitteeCrew:
     def fn_agent(self) -> Agent:
         conf     = self.agents_config['fn_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=False)
+        a = Agent(config=conf, verbose=True, allow_delegation=False, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -107,7 +108,7 @@ class ReviewCommitteeCrew:
     def km_agent(self) -> Agent:
         conf     = self.agents_config['km_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=False)
+        a = Agent(config=conf, verbose=True, allow_delegation=False, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -120,7 +121,7 @@ class ReviewCommitteeCrew:
     def rf_agent(self) -> Agent:
         conf     = self.agents_config['rf_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=False)
+        a = Agent(config=conf, verbose=True, allow_delegation=False, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -133,7 +134,7 @@ class ReviewCommitteeCrew:
     def rs_agent(self) -> Agent:
         conf     = self.agents_config['rs_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=False)
+        a = Agent(config=conf, verbose=True, allow_delegation=False, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -146,7 +147,7 @@ class ReviewCommitteeCrew:
     def manager_agent(self) -> Agent:
         conf     = self.agents_config['manager_agent']
         role_str = conf['role']
-        a = Agent(config=conf, verbose=True, allow_delegation=True)
+        a = Agent(config=conf, verbose=True, allow_delegation=True, llm=gpt5_llm)
         def _log_my_steps(step_output):
             text = (getattr(step_output, "output", None) or getattr(step_output, "text", "")).strip()
             if text:
@@ -173,7 +174,7 @@ class ReviewCommitteeCrew:
         a = Agent(
             config=self.agents_config['manager_agent'],
             verbose=True,
-            allow_delegation=True
+            allow_delegation=True, llm=gpt5_llm
             )
         
         def _log_my_steps(step_output):
