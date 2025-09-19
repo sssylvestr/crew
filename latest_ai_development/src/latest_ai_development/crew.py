@@ -228,10 +228,12 @@ class ReviewCommitteeCrew:
             "memory": True,
             "llm": gpt5_llm,
             "embedder": {
-                "provider": "openai",
+                "provider": "azure",
                 "config": {
-                    "model": "text-embedding-3-small",
-                    "api_key": "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"
+                    "model": "text-embedding-ada-002",
+                    "api_key": "6e72266c1ada4d32b94787854eed8ea1",
+                    "api_base": "https://OpenAI-NC-East-US-2.openai.azure.com",
+                    "api_version": "2023-05-15"
                 }
             }
         }
