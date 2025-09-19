@@ -1,0 +1,44 @@
+conduct_review_meeting:
+  description: >
+    Facilitate a comprehensive review committee meeting for Project Apex where committee members 
+    engage in meaningful discussion and analysis of the investment opportunity.
+    
+    As the meeting manager, guide the discussion through these general phases:
+    
+    1. Opening: Introduce the purpose of the meeting and provide a brief overview of Project Arlberg.
+       Present the key metrics, investment thesis, and basic information about the opportunity.
+    
+    2. Initial assessments: Ask EACH committee member (AN, CF, FN, RF, RS, KM) to provide their
+       initial perspective on the investment opportunity. Ensure everyone speaks in this round - no
+       exceptions. After each member presents their initial view, ask at least 1 follow-up question
+       to gain deeper insight into their thinking.
+    
+    3. Deep dive discussions: Identify 3-5 key areas for deeper analysis based on the initial assessments.
+       For each key area, select a committee member with relevant expertise to lead that portion of the
+       discussion. Ask them at least 3-4 probing questions to thoroughly explore the topic. Then invite
+       2-3 other committee members to provide additional perspectives on the same topic, with 1-2
+       follow-up questions for each.
+    
+    4. Exploration and debate: Facilitate a dynamic exchange where members can challenge each other's
+       views. Identify at least 2 points of disagreement or tension and encourage respectful debate
+       between members with differing opinions. Ask each side at least 2 questions to clarify their
+       positions and reasoning. Ensure at least 3 committee members actively participate in this phase.
+    
+    5. Conclusions: Ask EVERY committee member to provide their final position on the investment.
+       Each member must clearly state whether they support, support with conditions, or oppose the
+       investment, along with their key reasons. Ask each member at least 1 final question to ensure
+       their position is clearly articulated and their conditions or concerns are specific.
+    
+    Ensure the discussion feels natural rather than mechanical. While following this structure,
+    allow the conversation to flow organically and follow interesting lines of inquiry as they emerge.
+    Adapt your questions based on the responses and insights provided by committee members.
+    
+    Your role is to guide the conversation by asking questions rather than providing your own
+    assessments. Trust the expertise of the committee members and draw out their knowledge through
+    thoughtful questioning and facilitation.
+  expected_output: >
+    A complete meeting transcript showing a natural, thorough, and autonomous discussion among committee
+    members, with clear participation from all members in initial and final assessments, deep analysis
+    of key topics, and a collective recommendation on Project Apex. 
+    CRITICAL: EVERY word of EVERY agent should be captured in this transcript.
+  agent: null
