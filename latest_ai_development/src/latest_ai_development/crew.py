@@ -11,8 +11,10 @@ from crewai import LLM
 
 # Add this LLM configuration
 gpt5_llm = LLM(
-    model="gpt-5",
-    api_key=os.getenv("OPENAI_API_KEY"),  # or "gpt-5-mini" or "gpt-5-nano" 
+    model="azure/gpt-4o",  # Azure model format
+    api_base="https://openai-nc-east-us-2.openai.azure.com",  # Your Azure endpoint
+    api_key="6e72266c1ada4d32b94787854eed8ea1",  # Your Azure API key
+    api_version="2025-03-01-preview",  # API version for GPT-5
     drop_params=True,
     additional_drop_params=["stop"]
 )
@@ -216,8 +218,8 @@ class ReviewCommitteeCrew:
             "tasks": [
                 self.conduct_review_meeting()
             ],
-            # "planning": True,
-            # "planning_llm": "bedrock/us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+            # "planning": False,
+            # "planning_llm": gpt5_llm,
             "output_log_file": True,
             "process": Process.hierarchical,
             "manager_agent": manager,
@@ -229,7 +231,7 @@ class ReviewCommitteeCrew:
                 "provider": "openai",
                 "config": {
                     "model": "text-embedding-3-small",
-                    "api_key": os.getenv("OPENAI_API_KEY")
+                    "api_key": "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"
                 }
             }
         }
